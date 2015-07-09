@@ -15,9 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/articles', function () {
-    return view('welcome');
-});
+Route::get('/articles', 'ArticlesController@index');
+Route::get('/articles/{id}', 'ArticlesController@show');
 
 Route::get('contact', 'PageController@contact');
 Route::get('about', 'PageController@about');

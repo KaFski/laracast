@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddExcerptToArticlesTable extends Migration
+class CreateTasksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,8 +12,11 @@ class AddExcerptToArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::table('articles', function (Blueprint $table) {
-            $table->text('excerpt')->nullable();
+        Schema::create('tasks', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('nazwa');
+            $table->text('opis');
+            $table->timestamps();
         });
     }
 
@@ -24,8 +27,6 @@ class AddExcerptToArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::table('articles', function (Blueprint $table) {
-            $table->dropColumn('excerpt');
-        });
+        Schema::drop('tasks');
     }
 }
