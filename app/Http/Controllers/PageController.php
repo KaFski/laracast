@@ -17,8 +17,12 @@ class PageController extends Controller
     public function about() {
         
         $name = 'Paweł';
-       
+        $people = [
+            'me'    =>  'Paweł',
+            'you'   =>  'Johny',
+            'sbd'   =>  'somebody'
+        ];
         
-        return view('page/about')->with('name', $name);
+        return view('page/about', compact('name'))->with('people', $people);
     }
 }
