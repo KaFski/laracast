@@ -18,3 +18,8 @@ Route::get('/', function () {
 Route::get('/articles', function () {
     return view('welcome');
 });
+
+Route::get('contact', 'PageController@contact');
+Route::get('about', 'PageController@about');
+
+
