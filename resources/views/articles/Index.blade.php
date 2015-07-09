@@ -5,7 +5,7 @@
     
     @foreach ($articles as $article)
     <article>
-        <h2><a href="#">{{ $article->title }} </a></h2>
+        <h2><a href="articles/{{$article->id}}">{{ $article->title }} </a></h2>
         
         <div class="body">{{ $article->body }}</div>
     </article>
