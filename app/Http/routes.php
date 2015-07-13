@@ -18,7 +18,7 @@ Route::resource('articles', 'ArticlesController');
 
 Route::get('contact', 'PageController@contact');
 Route::get('about', 'PageController@about');
-
+/*
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
@@ -27,12 +27,14 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 
-Route::post('auth/register', 'Auth\AuthController@create');
-/*
+Route::post('auth/register', 'Auth\AuthController@create');*/
+
 Route::controllers([
 
         'auth'      => 'Auth\AuthController',
 
         'password'  => 'Auth\PasswordController',
 
-]);*/
+]);
+
+Route:get('foo', 'PageController@about');

@@ -11,8 +11,11 @@ use App\Http\Requests\ArticleRequest;
 
 class ArticlesController extends Controller
 {
-    public function index() {
-        
+    
+    public function __construct() {
+        $this->middleware('auth', ['except' => 'index', 'show']);
+    }
+    public function index() {        
         $articles = Article::latest('published_at')->Published()->get();
         
         return view('articles/index')->with('articles', $articles);
@@ -32,8 +35,11 @@ class ArticlesController extends Controller
     
     public function store(ArticleRequest $request) {
         
+        $article = new Article($request->all());
         
-        Article::create($request->all());
+        \Auth::user()->articles()->save($article);
+        
+        \Session::flash('flash_message', 'Your article has been created');
         
         return redirect('articles');
                 

@@ -9,6 +9,9 @@ use App\Http\Controllers\Controller;
 
 class PageController extends Controller
 {
+    public function __construct() {
+        $this->middleware('manager', ['except' => 'about']);
+    }
     
     public function contact() {
         return view('page/contact');
